@@ -4,7 +4,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        /*algoritmo1();
+        algoritmo1();
         System.out.println("Ho eseguito l'algoritmo 1");
         System.out.println("-------------------------");
         algoritmo2();
@@ -24,10 +24,8 @@ public class Main {
         System.out.println("-------------------------");
         algoritmo7();
         System.out.println("Ho eseguito l'algoritmo 7");
-        System.out.println("-------------------------");*/
-        algoritmo8();
-        System.out.println("Ho eseguito l'algoritmo 8");
         System.out.println("-------------------------");
+
     }
 
     private static void algoritmo1() //Minimo in un array
@@ -175,9 +173,6 @@ public class Main {
             System.out.print("[ "+V[i]+" ]");
             i++;
         }
-        private static void algoritmo8()
-        {
 
-        }
     }
 }
