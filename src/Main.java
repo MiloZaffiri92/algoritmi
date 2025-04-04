@@ -10,6 +10,7 @@ public class Main {
         algoritmo6();
         algoritmo7();
         algoritmo8();
+        algoritmo9();
     }
 
     public static void algoritmo1() {
@@ -174,5 +175,64 @@ public class Main {
         } else {
             System.out.println("I numeri nel vettore non corrispondono ai valori del loro indice");
         }
+    }
+
+    public static void algoritmo9() {
+        //Dato vettore V determina se ogni valore dell'array corrisponde al valore del suo indice pari contiene un numero pari e se ogni numero dispari contiene un numero dispari
+        int[] v1 = {0,1,2,3,4,5,6,7};
+        int[] v2 = {1,2,3,4,5,6,7,8};
+        int[] v3 = {0};
+        int i = 0;
+        while (i < v1.length) {
+            if (i % 2 == 0) {
+                if (v1[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v1 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v1 non è pari");
+                }
+            } else {
+                if (v1[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v1 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v1 non è dispari");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < v2.length) {
+            if (i % 2 == 0) {
+                if (v2[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v2 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v2 non è pari");
+                }
+            } else {
+                if (v2[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v2 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v2 non è dispari");
+                }
+            }
+            i++;
+        }
+        i = 0;
+        while (i < v3.length) {
+            if (i % 2 == 0) {
+                if (v3[i] % 2 == 0) {
+                    System.out.println("Il numero " + i + " del vettore v3 è pari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v3 non è pari");
+                }
+            } else {
+                if (v3[i] % 2 == 1) {
+                    System.out.println("Il numero " + i + " del vettore v3 è dispari");
+                } else {
+                    System.out.println("Il numero " + i + " del vettore v23 non è dispari");
+                }
+            }
+            i++;
+        }
+
     }
 }
