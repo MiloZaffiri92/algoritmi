@@ -52,7 +52,7 @@ public class Main {
             somma=somma+V[i];
             i++;
         }
-        System.out.println("Il somma è: " + somma);
+        System.out.println("La somma è: " + somma);
     }
     private static void algoritmo3() //Riempire array con i primi n numeri della sequenza di fibonacci
     {
