@@ -21,6 +21,8 @@ public class Main {
         algoritmo15();
         algoritmo16();
         algoritmo17();
+        algoritmo18();
+        algoritmo19();
     }
 
     public static void algoritmo1() {
@@ -419,4 +421,53 @@ public class Main {
         }
     }
 
+    public static void algoritmo18() {
+        //Controlla se un Vettore V di grandezza n contiene un numero
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quanto vuoi che sia grande il vettore?");
+        int n = scan.nextInt();
+        int[] v = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Inserisci un numero nel vettore in posizione " + i );
+            v[i] = scan.nextInt();
+        }
+        System.out.println("Quale numero vuoi controllare se è presente nel vettore?");
+        int num = scan.nextInt();
+        boolean repeat = false;
+        for (int i = 0; i < n && !repeat; i++) {
+            if (num == v[i]) {
+                repeat = true;
+            }
+        }
+        if (repeat) {
+            System.out.println("Il numero " + num + " è presente nel vettore v");
+        } else {
+            System.out.println("Il numero " + num + " non è presente nel vettore v");
+        }
+    }
+
+    public static void algoritmo19() {
+        int[] v1 = {1,2,3,1,1,2,4,3,5,6,5,7};
+        int n = v1.length;
+        int[] v2 = new int[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            boolean duplicato = false;
+            for (int j = 0; j < count; j++) {
+                if (v1[i] == v2[j]) {
+                    duplicato = true;
+                    break;
+                }
+            }
+            if (!duplicato) {
+                v2[count] = v1[i];
+                System.out.println("In posizione " + count + " del vettore v2 si trova il numero " + v1[i]);
+                count++;
+            }
+        }
+        System.out.print("Vettore senza duplicati: ");
+        for (int i = 0; i < count; i++) {
+            System.out.print(v2[i] + " ");
+        }
+    }
 }
