@@ -6,13 +6,11 @@ public class MatrixDiagonalx3 {
 
             Scanner scanner = new Scanner(System.in);
 
-            // Inserimento dimensione matrice quadrata
             System.out.print("Inserisci la dimensione della matrice quadrata: ");
             int n = scanner.nextInt();
 
             int[][] matrice = new int[n][n];
 
-            // Riempimento matrice
             System.out.println("Inserisci i valori della matrice:");
             int i = 0;
             while (i < n) {
@@ -25,7 +23,6 @@ public class MatrixDiagonalx3 {
                 i++;
             }
 
-            // Verifica se la matrice è bandata di larghezza 3
             boolean bandata = true;
             i = 0;
             while (i < n && bandata) {
@@ -47,16 +44,14 @@ public class MatrixDiagonalx3 {
                 i++;
             }
 
-            // Stampa della matrice
-            System.out.println("\nMatrice inserita:");
+            System.out.println("Matrice inserita:");
             i = 0;
             while (i < n) {
                 System.out.println(Arrays.toString(matrice[i]));
                 i++;
             }
 
-            // Risultato finale
-            System.out.println("\nÈ una matrice bandata di larghezza 3? " + bandata);
+            System.out.println("È una matrice bandata di larghezza 3? " + bandata);
         }
     }
 

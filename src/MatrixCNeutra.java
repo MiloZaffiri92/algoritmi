@@ -17,14 +17,14 @@ import java.util.Arrays;
 //            int n = A.length;
 //            int m = A[0].length;
 //
-////            // Dimensioni matrici
+////
 //            System.out.print("Inserisci numero di righe: ");
 //            int righe = scanner.nextInt();
 //
 //            System.out.print("Inserisci numero di colonne: ");
 //            int colonne = scanner.nextInt();
 //
-//            // Matrice A
+//
 //            int[][] A = new int[righe][colonne];
 //            System.out.println("Inserisci i valori della matrice A:");
 //            int i = 0;
@@ -38,7 +38,6 @@ import java.util.Arrays;
 //                i++;
 //            }
 //
-//            // Matrice B
 //            int[][] B = new int[righe][colonne];
 //            System.out.println("Inserisci i valori della matrice B:");
 //            i = 0;
