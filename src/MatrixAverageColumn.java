@@ -3,40 +3,44 @@ import java.util.Arrays;
 
 public class MatrixAverageColumn {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        // Input dimensioni
-        System.out.print("Inserisci numero di righe: ");
-        int righe = scanner.nextInt();
+        System.out.print("Inserisci numero di n: ");
+        int n = scanner.nextInt();
 
-        System.out.print("Inserisci numero di colonne: ");
-        int colonne = scanner.nextInt();
+        System.out.print("Inserisci numero di m: ");
+        int m = scanner.nextInt();
 
-        int[][] matrice = new int[righe][colonne];
+        int[][] matrix = new int[n][m];
 
-        // Riempimento matrice
         System.out.println("Inserisci i valori della matrice:");
-        for (int i = 0; i < righe; i++) {
-            for (int j = 0; j < colonne; j++) {
-                System.out.print("Valore in posizione [" + i + "][" + j + "]: ");
-                matrice[i][j] = scanner.nextInt();
+        int i = 0;
+        while (i < n) {
+            int j = 0;
+            while (j < m) {
+                System.out.print("inserisci il numero: ");
+                matrix[i][j] = scanner.nextInt();
+                j++;
             }
+            i++;
         }
-
-        // Array per le medie delle colonne
-        double[] medieColonne = new double[colonne];
-
-        // Calcolo media per ogni colonna
-        for (int j = 0; j < colonne; j++) {
+        
+        int[] medieM = new int[m];
+        
+        int j = 0;
+        while (j < m) {
             int somma = 0;
-            for (int i = 0; i < righe; i++) {
-                somma += matrice[i][j];
+            i = 0;
+            while (i < n) {
+                somma += matrix[i][j];
+                i++;
             }
-            medieColonne[j] = (double) somma / righe;
+            medieM[j] = somma / n; 
+            j++;
         }
-
-        // Stampa delle medie
-        System.out.println("\nMedie delle colonne:");
-        System.out.println(Arrays.toString(medieColonne));
+        
+        System.out.print("media delle colonne della matrice: ");
+        System.out.print(Arrays.toString(medieM));
     }
 }
