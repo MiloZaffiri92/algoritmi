@@ -106,4 +106,5 @@ public class Main {
         }
         System.out.println("I numeri nel vettore minori di " + numero + " sono " + minore);
     }
+    // profilo github aggiornato
 }
