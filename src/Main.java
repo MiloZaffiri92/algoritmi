@@ -4,38 +4,70 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        System.out.println("Trovare il minimo in un array");
         algoritmo1();
         System.out.println("Ho eseguito l'algoritmo 1");
         System.out.println("-------------------------");
+        System.out.println("Sommare tutti i numeri contenuti in un array");
         algoritmo2();
         System.out.println("Ho eseguito l'algoritmo 2");
         System.out.println("-------------------------");
+        System.out.println("Riempire un array con i primi n numeri della sequenza di Fibonacci");
         algoritmo3();
         System.out.println("Ho eseguito l'algoritmo 3");
         System.out.println("-------------------------");
+        System.out.println("Determina se ci sono numeri ripetuti in un array");
         algoritmo4();
         System.out.println("Ho eseguito l'algoritmo 4");
         System.out.println("-------------------------");
+        System.out.println("Determina se ogni valore dell'array corrisponde al valore del suo indice");
         algoritmo5();
         System.out.println("Ho eseguito l'algoritmo 5");
         System.out.println("-------------------------");
+        System.out.println("Determina se in un array, ogni indice pari contiene un numero pari, e ogni indice dispari contiene un numero dispari");
         algoritmo6();
         System.out.println("Ho eseguito l'algoritmo 6");
         System.out.println("-------------------------");
+        System.out.println("Riempire l'array con n potenze di 2");
         algoritmo7();
         System.out.println("Ho eseguito l'algoritmo 7");
         System.out.println("-------------------------");
+        System.out.println("Determina se l'array è palindromo");
         algoritmo8();
         System.out.println("Ho eseguito l'algoritmo 8");
         System.out.println("-------------------------");
+        System.out.println("Determina se ci sono numeri ripetuti in un array contenente anche lettere");
         algoritmo9();
         System.out.println("Ho eseguito l'algoritmo 9");
         System.out.println("-------------------------");
+        System.out.println("Dato un array ordinato crescente,determina se ci sono numeri ripetuti,stampare a video quali e quanti");
         algoritmo10();
         System.out.println("Ho eseguito l'algoritmo 10");
         System.out.println("-------------------------");
+        System.out.println("Dati due array, creare un terzo array che contiene il prodotto scalare dei due array");
         algoritmo11();
         System.out.println("Ho eseguito l'algoritmo 11");
+        System.out.println("-------------------------");
+        System.out.println("Somma dei valori in una matrice");
+        algoritmo12();
+        System.out.println("Ho eseguito l'algoritmo 12");
+        System.out.println("-------------------------");
+        System.out.println("Massimo dei valori in una matrice");
+        algoritmo13();
+        System.out.println("Ho eseguito l'algoritmo 13");
+        System.out.println("-------------------------");
+        System.out.println("Inverti un array");
+        algoritmo14();
+        System.out.println(" ");
+        System.out.println("Ho eseguito l'algoritmo 14");
+        System.out.println("-------------------------");
+        System.out.println("Controllare su un vettore di grandezza n contiene il valore m");
+        algoritmo15();
+        System.out.println("Ho eseguito l'algoritmo 15");
+        System.out.println("-------------------------");
+        System.out.println("Controllare se una matrice è matrice identità(ovvero tutti 1 sulla diagonale principale e tutti 0 altrove)");
+        algoritmo16();
+        System.out.println("Ho eseguito l'algoritmo 16");
         System.out.println("-------------------------");
     }
 
@@ -317,6 +349,192 @@ public class Main {
         }
         V3[j]=prodottoscalare;
         System.out.println("Il prodotto scalare è : " + V3[j]);
+    }
+    private static void algoritmo12() //somma valori in una matrice
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserire il numero di righe della matrice");
+        int n = scan.nextInt();
+        System.out.println("Inserire il numero di colonne della matrice");
+        int m = scan.nextInt();
+        int[][] Matrix=new int[n][m];
+        int i=0;
+        int j=0;
+        int somma=0;
+        while(i<n)
+        {
+            while (j < m)
+            {
+                System.out.println("Inserire i valori della matrice nella riga " + i);
+                Matrix[i][j] = scan.nextInt();
+                somma = somma + Matrix[i][j];
+                j++;
+            }
+            i++;
+            j=0;
+        }
+        System.out.println("La somma dei valori contenuti nella matrice è : " + somma );
+    }
+    private static void algoritmo13()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserisci il numero delle righe");
+        int n = scan.nextInt();
+        System.out.println("Inserisci il numero delle colonne");
+        int m = scan.nextInt();
+        int i = 0;
+        int j = 0 ;
+        int[][] M = new int[n][m];
+        int max = M[i][j];
+        while(i<n)
+        {
+            while (j < m)
+            {
+                System.out.println("Inserire i valori della matrice nella riga " + i);
+                M[i][j] = scan.nextInt();
+                j++;
+            }
+            i++;
+            j=0;
+        }
+        i=0;
+        j=0;
+        while(i<n)
+        {
+            while(j<m)
+            {
+                if(M[i][j]>max)
+                {
+                    max=M[i][j];
+                }
+                j++;
+            }
+            i++;
+            j=0;
+        }
+        System.out.println("Il valore massimo è : " + max);
+    }
+    private static void algoritmo14()
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Inserisci la grandezza dell'array");
+        int n= scan.nextInt();
+        int[] V = new int[n];
+        int i=0;
+        int j=n-1;
+        int temp=0;
+        while(i<n)
+        {
+            System.out.println("Inserire un valore nell'array");
+            V[i]=scan.nextInt();
+            i++;
+        }
+        i=0;
+        while(i<n/2)
+        {
+            temp=V[i];
+            V[i]=V[j];
+            V[j]=temp;
+            i++;
+            j--;
+        }
+        i=0;
+        while(i<n)
+        {
+            System.out.print("[ " + V[i] + " ]");
+            i++;
+        }
+    }
+    private static void algoritmo15()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserire la grandezza del vettore");
+        int n=scan.nextInt();
+        int[] V = new int [n];
+        System.out.println("Inserire il valore da cercare");
+        int m=scan.nextInt();
+        int i=0;
+        while(i<n)
+        {
+            System.out.println("Inserisci i valori nel vettore");
+            V[i]=scan.nextInt();
+            i++;
+        }
+        i=0;
+        boolean trovato=false;
+        while(i<n && trovato==false)
+        {
+            if(V[i]==m)
+            {
+                trovato=true;
+            }
+            i++;
+        }
+        if(trovato==true)
+        {
+            System.out.println("Il valore " +m+ " è contnuto nell'array");
+        }
+        else
+        {
+            System.out.println("Il valore " +m+ " non è contnuto nell'array");
+        }
+
+    }
+    private static void algoritmo16()
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Inserisci il numero di righe");
+        int n = scan.nextInt();
+        System.out.println("Inserisci il numero di colonne");
+        int m = scan.nextInt();
+        int[][] M = new int[n][m];
+        int i=0;
+        int j=0;
+        boolean identità=true;
+        while(i<n)
+        {
+            while(j<m)
+            {
+                System.out.println("Inserisci i valori nella riga " +i);
+                M[i][j]=scan.nextInt();
+                j++;
+            }
+            i++;
+            j=0;
+        }
+        i=0;
+        j=0;
+        while(i<n && identità==true)
+        {
+            while(j<m && identità==true)
+            {
+                if(i==j)
+                {
+                    if(M[i][j]!=1)
+                    {
+                        identità=false;
+                    }
+                }
+                else
+                {
+                    if(M[i][j]!=0)
+                    {
+                        identità=false;
+                    }
+                }
+                j++;
+            }
+            i++;
+        }
+        if(identità)
+        {
+            System.out.println("La matrice è identità " );
+        }
+        else
+        {
+            System.out.println("La matrice non è identità " );
+        }
+
     }
 
 }
