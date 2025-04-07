@@ -23,6 +23,8 @@ public class Main {
         algoritmo17();
         algoritmo18();
         algoritmo19();
+        algoritmo20();
+        algoritmo21();
     }
 
     public static void algoritmo1() {
@@ -470,4 +472,82 @@ public class Main {
             System.out.print(v2[i] + " ");
         }
     }
+
+    public static void algoritmo20() {
+        //Realizzare un algoritmo che verifichi se una matrice è identita(vale a dire che tutti i valori della diagonale principale è composta da 1)
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe/colonne vuoi che abbia la tua matrice?");
+        int n = scan.nextInt();
+        int[][] m = new int [n][n];
+        int i = 0;
+        while (i < n ) {
+            int j = 0;
+            while (j < n) {
+                System.out.println("Che numero vuoi inserire nella matrice m in posizione m[" + i + "][" + j + "]?");
+                m[i][j] = scan.nextInt();
+                j++;
+            }
+            i++;
+        }
+        i = 0;
+        boolean identita = true;
+        while (i < n && identita) {
+            int j = 0;
+            while (j < n && identita) {
+                if (i == j) {
+                    if (m[i][j] != 1) {
+                        identita = false;
+                    }
+                }
+                j++;
+            }
+            i++;
+        }
+        if (identita) {
+            System.out.println("La matrice m è identita");
+        } else {
+            System.out.println("La matrice m non è identita");
+        }
+    }
+
+    public static void algoritmo21() {
+        //Realizzare un algoritmo che verifichi se una matrice m ha tutti 0 sulla parte triangolare superiore
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Quante righe/colonne vuoi che abbia la tua matrice?");
+        int n = scan.nextInt();
+        int[][] m = new int [n][n];
+        int i = 0;
+        while (i < n ) {
+            int j = 0;
+            while (j < n) {
+                System.out.println("Che numero vuoi inserire nella matrice m in posizione m[" + i + "][" + j + "]?");
+                m[i][j] = scan.nextInt();
+                j++;
+            }
+            i++;
+        }
+        i = 0;
+        boolean triangolo = true;
+        while (i < n && triangolo) {
+            int j = 0;
+            while (j < n && triangolo) {
+                if (j > i) {
+                    if (m[i][j] != 0) {
+                        triangolo = false;
+                    }
+                }
+                j++;
+            }
+            i++;
+        }
+        if (triangolo) {
+            System.out.println("La matrice m ha il triangolo superiore che è composto da soli 0");
+        } else {
+            System.out.println("La matrice m ha il triangolo superiore che non è composto da soli 0");
+        }
+    }
+
+
+
 }
+
