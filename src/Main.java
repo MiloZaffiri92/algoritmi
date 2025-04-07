@@ -11,7 +11,8 @@ public class Main {
 //        algoritmoPariDispari();
 //        sommaArray();
 //        fibonacci();
-        numeriRipetuti();
+//        numeriRipetuti();
+//        indiceUgualeNumero();
 
 
     }
@@ -132,11 +133,40 @@ public class Main {
             System.out.println("Ci sono numeri ripetuti");
 
         }
-
-
     }
 
+    private static void indiceUgualeNumero(){
 
+        int n = 7;
+        int i = 0;
+        Scanner scanner = new Scanner(System.in);
+        int[] v = new int[n];
 
+        while(i < n){
+            int num = scanner.nextInt();
+            v[i] = num;
+            i++;
 
+        }
+
+        i = 0;
+
+        int uguali = 0;
+        int diversi = 0;
+
+        while (i < n) {
+            if (v[i]== i) {
+                uguali++;
+            } else {
+                diversi++;
+            }
+            i++;
+        }
+
+        if(diversi > 0) {
+            System.out.println("non corrispondono");
+        } else {
+            System.out.println("corrispondono");
+        }
+    }
 }
