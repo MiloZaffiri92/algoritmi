@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         //algortimo che vuoi testare da 1-10
-        algoritmo_11();
+        lezione_1();
 
     }
 
@@ -296,6 +296,93 @@ public class Main {
         }
 
         System.out.println("La somma dei valori della matrice è: " + somma);
+
+    }
+
+    private static void lezione_1 () {
+        //Algortimo compito- dato un array ordinato in senso crescente, inserisci nella giusta posizione un numero chiesto in input
+        Scanner scanner= new Scanner(System.in);
+
+                //caricamento vettore
+        System.out.println("Inserisci la grandezza del vettore: ");
+        int[] a = new int[scanner.nextInt()];
+        int f=0;
+        while(f<a.length) {
+            System.out.println("Inserisci un numero ");
+            a[f]=scanner.nextInt();
+            while(f!=0 && a[f]<a[f-1]){
+                System.out.println("hai inserito un numero più piccolo del precedete, l'array deve essere crescente \n riprova: ");
+                a[f]=scanner.nextInt();
+
+            }
+            f++;
+        }
+                //corpo algoritmo
+        int i=0; int j=0;
+        boolean inserito=false;
+        int[] b = new int[a.length+1];
+        System.out.println("Inserisci il numero che vuoi inserire nell'array: ");
+        int num= scanner.nextInt();
+        while (i<a.length) {
+            if(inserito || a[i]<num) {
+                b[j]=a[i];
+                i++;
+            }
+            else {
+                b[j]=num;
+                inserito=true;
+            }
+            j++;
+        }
+        if(!inserito) b[j]=num;
+                //stampa risultati
+        i=0;
+        System.out.println("Il vettore risultante è ");
+        while(i<b.length) {
+            System.out.print(b[i]+" ");
+            i++;
+        }
+
+    }
+
+    private static void lezione_2() {
+        /*  Dato un array d'interi e una target-sum, trova gli indici dei 2 numeri che sommati risultano il target;
+            l'algoritmo finisce nel momento in cui ne trovo uno o nessuno     */
+
+                //caricamento vettore
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Inserisci la grandezza del vettore: ");
+        int[] vet= new int[scanner.nextInt()];
+        int f=0;
+        while (f<vet.length) {
+            System.out.println("Inserisci un numero: ");
+            vet[f]=scanner.nextInt();
+            f++;
+        }
+
+                //corpo algoritmo
+        System.out.println("Inserisci la target-sum:");
+        int tSum= scanner.nextInt();
+        int i=0;
+        boolean trovato=false;
+        int[] ar = new int[2];
+        while(i<vet.length-1 && !trovato) {
+            int j=i+1;
+            while(j<vet.length && !trovato) {
+                if (vet[i]+vet[j]==tSum) {
+                    ar[0]=i;
+                    ar[1]=j;
+                    trovato=true;
+                }
+                j++;
+            }
+            i++;
+        }
+
+                //stampa risultati
+        if(trovato) System.out.println("Gli indici sono "+ar[0] + " e " + ar[1]+ " infatti " + vet[ar[0]]+ "+" + vet[ar[1]]+ "=" + tSum);
+        else System.out.println("Non esiste una combinazione per la target-sum");
+
 
     }
 
