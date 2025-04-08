@@ -13,6 +13,8 @@ public class Main {
 //        fibonacci();
 //        numeriRipetuti();
 //        indiceUgualeNumero();
+//          algoritmoEsame();
+        algoritmoTargetSum();
 
 
     }
@@ -167,6 +169,84 @@ public class Main {
             System.out.println("non corrispondono");
         } else {
             System.out.println("corrispondono");
+        }
+    }
+
+    private static void algoritmoEsame() {
+        Scanner scan = new Scanner(System.in);
+
+        int i = 0;
+        int j = 0;
+        int n = 4;
+        int m = n+1;
+        boolean ins = false;
+
+
+        int[] a = new int[n];
+        int[] b = new int[m];
+
+        while(i<n) {
+            System.out.println("inserisci un numero per l'array");
+            int numero = scan.nextInt();
+            a[i] = numero;
+            i++;
+        }
+
+        i=0;
+
+        Scanner scan1= new Scanner(System.in);
+
+
+        System.out.println("Inserisci un numero: ");
+
+        int num = scan1.nextInt();
+
+
+
+        while(i<n) {
+            if(a[i]<num || ins == true) {
+                b[j] = a[i];
+                i++;
+            } else {
+                b[j] = num;
+            }
+            j++;
+        }
+
+        if(ins == false) {
+            b[j] = num;
+        }
+    }
+
+    private static void algoritmoTargetSum() {
+        Scanner scan = new Scanner(System.in);
+
+        int i = 0;
+        int n = 5;
+        int[] a = {1,2,3,1};
+        int[] b = new int[2];
+        System.out.println("inserisci la target sum:");
+        int sum = scan.nextInt();
+        boolean trovato = false;
+
+        while(i<n-1 && !trovato) {
+            int j = i+1;
+            while(j<n && trovato == false) {
+                    if(a[i] + a[j] == sum) {
+                        b[0] = i;
+                        b[1] = j;
+                        trovato = true;
+                    }
+                j++;
+            }
+            i++;
+        }
+
+       i = 0;
+
+        while(i<2) {
+            System.out.println(b[i]);
+            i++;
         }
     }
 }
