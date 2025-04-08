@@ -2,6 +2,7 @@ package src;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -22,6 +23,12 @@ public class Main {
         // Algoritmi su Matrici
         matrici_01(); // M01 - Somma i valori contenuti in una matrice M di dimensione nxm e stampa a video
         matrici_02(); // M02 - Trova il massimo valore contenuto in una matrice M di dimensione nxm (Matrice quadrata)
+
+        // Algoritmo del compito corretto in aula
+        compito_01(); // Inserisci un numero in un vettore ordinato in ordine crescente
+
+        // Esercizio 2025_04_08
+        esercizio_2025_04_08_A(); // Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)
     }
 
     // 01 - Dato un Array V=[120,23,4,0,1] somma tutti i numeri nell'array.
@@ -421,5 +428,91 @@ public class Main {
         System.out.println("-----------------------------------------------------------------------------------");
 
     }
+
+    // Algoritmo 01 del compito corretto in aula
+    private static void compito_01(){
+        System.out.println("----------------------------------  Compito 01 ----------------------------------");
+        System.out.println("Compito 01 - Inserisci un numero in un vettore ordinato in ordine crescente");
+        System.out.println("");
+
+        int[] a = {1,2,5,6};
+
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserisci il numero da inserire nel vettore " + Arrays.toString(a));
+
+        int n = a.length;
+        int[] b = new int[n+1];
+        int i = 0;
+        int j = 0;
+        //int num = scan.nextInt(); // togliere il commento se si vuole inserire il numero manualmente
+        int num = 4;
+        boolean inserito = false;
+
+        System.out.println("Vettore iniziale: " + Arrays.toString(a));
+        System.out.println("Numero da inserire: " + num);
+
+        while (i < n){
+            if (a[i] < num || inserito){
+                b[j] = a[i];
+                i++;
+            } else {
+                b[j] = num;
+                inserito = true;
+            }
+            j++;
+        }
+
+        if (inserito == false){
+            b[j] = num;
+        }
+
+
+        System.out.println("Vettore finale: " + Arrays.toString(b));
+
+        System.out.println("-----------------------------------------------------------------------------------");
+
+    }
+
+    // Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)
+    public static void esercizio_2025_04_08_A(){
+        System.out.println("----------------------------------  Esercizio 2024_04_08 - A - ----------------------------------");
+        System.out.println("Esercizio 2024_04_08 - A - Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)");
+        System.out.println("");
+
+        int[] a = {1,2,3,2,4,5,5,6,0};
+        int target_sum = 5;
+        int i = 0;
+        int j = 0;
+        int[] coppia = new int[2];
+        boolean coppia_trovata = false;
+
+        System.out.println("Vettore iniziale: " + Arrays.toString(a));
+        System.out.println("Target sum: " + target_sum);
+
+        while (i < a.length && coppia_trovata == false){
+            while (j < a.length && coppia_trovata == false){
+                if (i != j){
+                    if (a[i] + a[j] == target_sum){
+                        coppia[0] = i;
+                        coppia[1] = j;
+                        coppia_trovata = true;
+                    }
+                }
+                System.out.println("i= " + i + " - j=" + j);
+                j++;
+            }
+            i++;
+            j = i;
+        }
+
+        if (coppia_trovata) {
+            System.out.println("La coppia di numeri è: " + a[coppia[0]] + " (indice " + coppia[0] + ") e " + a[coppia[1]] + " (indice " + coppia[1] + ")");
+        } else {
+            System.out.println("Non c'è una coppia di numeri che restituisce questa somma");
+        }
+
+        System.out.println("-----------------------------------------------------------------------------------");
+    }
+
 
 }
