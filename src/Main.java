@@ -4,7 +4,7 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Trovare il minimo in un array");
+        /*System.out.println("Trovare il minimo in un array");
         algoritmo1();
         System.out.println("Ho eseguito l'algoritmo 1");
         System.out.println("-------------------------");
@@ -68,6 +68,13 @@ public class Main {
         System.out.println("Controllare se una matrice è matrice identità(ovvero tutti 1 sulla diagonale principale e tutti 0 altrove)");
         algoritmo16();
         System.out.println("Ho eseguito l'algoritmo 16");
+        System.out.println("-------------------------");
+        algoritmoTest();
+        System.out.println(" ");
+        System.out.println("Ho eseguito l'algoritmo del Test");*/
+        System.out.println("-------------------------");
+        algoritmoTargetSum();
+        System.out.println("Ho eseguito l'algoritmo target sum");
         System.out.println("-------------------------");
     }
 
@@ -267,8 +274,7 @@ public class Main {
         }
     }
 
-    private static void algoritmo10()
-    {
+    private static void algoritmo10() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci la grandezza dal vettore");
         int n = scan.nextInt();
@@ -277,7 +283,7 @@ public class Main {
         int i = 0;
         int ripetuti = 0;
         int j = i + 1;
-        int k=0;
+        int k = 0;
         while (i < n) {
             System.out.println("Inserisci il valore da inserire nel vettore");
             V[i] = scan.nextInt();
@@ -289,67 +295,60 @@ public class Main {
             i++;
         }
         i = 0;
-        while (i < n - 1)
-        {
-            j=i+1;
-            while (j < n)
-            {
-                if (V[i] == V[j])
-                {
+        while (i < n - 1) {
+            j = i + 1;
+            while (j < n) {
+                if (V[i] == V[j]) {
                     ripetuti++;
-                    V2[k]=V[i];
+                    V2[k] = V[i];
                     k++;
                 }
                 j++;
             }
             i++;
         }
-        k=0;
-        if(ripetuti>0)
-        {
+        k = 0;
+        if (ripetuti > 0) {
             System.out.println("Si ripetono : " + ripetuti + " numeri e sono : ");
-            while(k<ripetuti)
-            {
-                System.out.print("["+V2[k]+"]");
+            while (k < ripetuti) {
+                System.out.print("[" + V2[k] + "]");
                 k++;
             }
-        }
-        else
-        {
+        } else {
             System.out.println("I numeri non sono ripetuti");
         }
 
     }
+
     private static void algoritmo11() //prodotto scalare
     {
-        Scanner scan=new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci la grandezza dei vettori");
-        int n= scan.nextInt();
-        int prodottoscalare=0;
+        int n = scan.nextInt();
+        int prodottoscalare = 0;
         int[] V = new int[n];       //{2,4,8,16};
         int[] V2 = new int[n];      //{3,6,9,12};
-        int[] V3= new int[1];
-        int i=0;
-        int j=0;
-        int prod=0;
-        while(i<n)
-        {
+        int[] V3 = new int[1];
+        int i = 0;
+        int j = 0;
+        int prod = 0;
+        while (i < n) {
             System.out.println("Inserisci il valore da inserire nel primo vettore");
             V[i] = scan.nextInt();
             System.out.println("Inserisci il valore da inserire nel secondo vettore");
             V2[i] = scan.nextInt();
             i++;
         }
-        i=0;
-        while(i<n)
-        {
-            prod=V[i]*V2[i];
-            prodottoscalare=prodottoscalare+prod ;
+        i = 0;
+        while (i < n) {
+            prod = V[i] * V2[i];
+            prodottoscalare = prodottoscalare + prod;
             i++;
         }
-        V3[j]=prodottoscalare;
+        V3[j] = prodottoscalare;
         System.out.println("Il prodotto scalare è : " + V3[j]);
     }
+
     private static void algoritmo12() //somma valori in una matrice
     {
         Scanner scan = new Scanner(System.in);
@@ -357,184 +356,230 @@ public class Main {
         int n = scan.nextInt();
         System.out.println("Inserire il numero di colonne della matrice");
         int m = scan.nextInt();
-        int[][] Matrix=new int[n][m];
-        int i=0;
-        int j=0;
-        int somma=0;
-        while(i<n)
-        {
-            while (j < m)
-            {
+        int[][] Matrix = new int[n][m];
+        int i = 0;
+        int j = 0;
+        int somma = 0;
+        while (i < n) {
+            while (j < m) {
                 System.out.println("Inserire i valori della matrice nella riga " + i);
                 Matrix[i][j] = scan.nextInt();
                 somma = somma + Matrix[i][j];
                 j++;
             }
             i++;
-            j=0;
+            j = 0;
         }
-        System.out.println("La somma dei valori contenuti nella matrice è : " + somma );
+        System.out.println("La somma dei valori contenuti nella matrice è : " + somma);
     }
-    private static void algoritmo13()
-    {
+
+    private static void algoritmo13() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci il numero delle righe");
         int n = scan.nextInt();
         System.out.println("Inserisci il numero delle colonne");
         int m = scan.nextInt();
         int i = 0;
-        int j = 0 ;
+        int j = 0;
         int[][] M = new int[n][m];
         int max = M[i][j];
-        while(i<n)
-        {
-            while (j < m)
-            {
+        while (i < n) {
+            while (j < m) {
                 System.out.println("Inserire i valori della matrice nella riga " + i);
                 M[i][j] = scan.nextInt();
                 j++;
             }
             i++;
-            j=0;
+            j = 0;
         }
-        i=0;
-        j=0;
-        while(i<n)
-        {
-            while(j<m)
-            {
-                if(M[i][j]>max)
-                {
-                    max=M[i][j];
+        i = 0;
+        j = 0;
+        while (i < n) {
+            while (j < m) {
+                if (M[i][j] > max) {
+                    max = M[i][j];
                 }
                 j++;
             }
             i++;
-            j=0;
+            j = 0;
         }
         System.out.println("Il valore massimo è : " + max);
     }
-    private static void algoritmo14()
-    {
-        Scanner scan=new Scanner(System.in);
+
+    private static void algoritmo14() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci la grandezza dell'array");
-        int n= scan.nextInt();
+        int n = scan.nextInt();
         int[] V = new int[n];
-        int i=0;
-        int j=n-1;
-        int temp=0;
-        while(i<n)
-        {
+        int i = 0;
+        int j = n - 1;
+        int temp = 0;
+        while (i < n) {
             System.out.println("Inserire un valore nell'array");
-            V[i]=scan.nextInt();
+            V[i] = scan.nextInt();
             i++;
         }
-        i=0;
-        while(i<n/2)
-        {
-            temp=V[i];
-            V[i]=V[j];
-            V[j]=temp;
+        i = 0;
+        while (i < n / 2) {
+            temp = V[i];
+            V[i] = V[j];
+            V[j] = temp;
             i++;
             j--;
         }
-        i=0;
-        while(i<n)
-        {
+        i = 0;
+        while (i < n) {
             System.out.print("[ " + V[i] + " ]");
             i++;
         }
     }
-    private static void algoritmo15()
-    {
+
+    private static void algoritmo15() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Inserire la grandezza del vettore");
-        int n=scan.nextInt();
-        int[] V = new int [n];
+        int n = scan.nextInt();
+        int[] V = new int[n];
         System.out.println("Inserire il valore da cercare");
-        int m=scan.nextInt();
-        int i=0;
-        while(i<n)
-        {
+        int m = scan.nextInt();
+        int i = 0;
+        while (i < n) {
             System.out.println("Inserisci i valori nel vettore");
-            V[i]=scan.nextInt();
+            V[i] = scan.nextInt();
             i++;
         }
-        i=0;
-        boolean trovato=false;
-        while(i<n && trovato==false)
-        {
-            if(V[i]==m)
-            {
-                trovato=true;
+        i = 0;
+        boolean trovato = false;
+        while (i < n && trovato == false) {
+            if (V[i] == m) {
+                trovato = true;
             }
             i++;
         }
-        if(trovato==true)
-        {
-            System.out.println("Il valore " +m+ " è contnuto nell'array");
-        }
-        else
-        {
-            System.out.println("Il valore " +m+ " non è contnuto nell'array");
+        if (trovato == true) {
+            System.out.println("Il valore " + m + " è contnuto nell'array");
+        } else {
+            System.out.println("Il valore " + m + " non è contnuto nell'array");
         }
 
     }
-    private static void algoritmo16()
-    {
-        Scanner scan=new Scanner(System.in);
+
+    private static void algoritmo16() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Inserisci il numero di righe");
         int n = scan.nextInt();
         System.out.println("Inserisci il numero di colonne");
         int m = scan.nextInt();
         int[][] M = new int[n][m];
-        int i=0;
-        int j=0;
-        boolean identità=true;
-        while(i<n)
-        {
-            while(j<m)
-            {
-                System.out.println("Inserisci i valori nella riga " +i);
-                M[i][j]=scan.nextInt();
+        int i = 0;
+        int j = 0;
+        boolean identità = true;
+        while (i < n) {
+            while (j < m) {
+                System.out.println("Inserisci i valori nella riga " + i);
+                M[i][j] = scan.nextInt();
                 j++;
             }
             i++;
-            j=0;
+            j = 0;
         }
-        i=0;
-        j=0;
-        while(i<n && identità==true)
-        {
-            while(j<m && identità==true)
-            {
-                if(i==j)
-                {
-                    if(M[i][j]!=1)
-                    {
-                        identità=false;
+        i = 0;
+        j = 0;
+        while (i < n && identità == true) {
+            while (j < m && identità == true) {
+                if (i == j) {
+                    if (M[i][j] != 1) {
+                        identità = false;
                     }
-                }
-                else
-                {
-                    if(M[i][j]!=0)
-                    {
-                        identità=false;
+                } else {
+                    if (M[i][j] != 0) {
+                        identità = false;
                     }
                 }
                 j++;
             }
             i++;
         }
-        if(identità)
-        {
-            System.out.println("La matrice è identità " );
-        }
-        else
-        {
-            System.out.println("La matrice non è identità " );
+        if (identità) {
+            System.out.println("La matrice è identità ");
+        } else {
+            System.out.println("La matrice non è identità ");
         }
 
     }
 
+    private static void algoritmoTest() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Inserire la grandezza del vettore");
+        int n = scan.nextInt();
+        int[] A = new int[n];
+        int[] B = new int[n + 1];
+        int i = 0;
+        int j = 0;
+        System.out.println("Inserire un numero da inserire nel vettore");
+        int num = scan.nextInt();
+        boolean inserito = false;
+        while (i < n) {
+            System.out.println("Inserisci i valori nel vettore");
+            A[i] = scan.nextInt();
+            i++;
+        }
+        i = 0;
+        while (i < n) {
+            if (A[i] < num || inserito) {
+                B[j] = A[i];
+                i++;
+            } else {
+                B[j] = num;
+                inserito = true;
+            }
+            j++;
+        }
+        if (!inserito) {
+            B[j] = num;
+        }
+        j = 0;
+        while (j < n + 1) {
+            System.out.print("[" + B[j] + "]");
+            j++;
+        }
+    }
+
+    private static void algoritmoTargetSum()
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Inserisci la grandezza del vettore ");
+        int n=scan.nextInt();
+        int[] V = new int [n];
+        int a=0;
+        int b=0;
+        System.out.println("Inserisci la target sum ");
+        int ts= scan.nextInt();
+        int i=0;
+        boolean trovato=false;
+        while(i<n)
+        {
+            System.out.println("Inserisci il valore nella posizione " + i + "  del vettore");
+            V[i]=scan.nextInt();
+            i++;
+        }
+        i=0;
+        int j=i+1;
+        while(i<n-1 && !trovato)
+        {
+            while(j<n && !trovato )
+            {
+                if(V[i]+V[j]==ts)
+                {
+                    a=i;
+                    b=j;
+                    trovato=true;
+                }
+                j++;
+            }
+            i++;
+            j=i+1;
+        }
+        System.out.println("I valori che sommati restituiscono la target sum si trovano negli indici : " +a+ " e " +b);
+    }
 }
