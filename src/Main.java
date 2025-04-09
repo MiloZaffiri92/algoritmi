@@ -2,6 +2,7 @@ package src;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -29,6 +30,7 @@ public class Main {
 
         // Esercizio 2025_04_08
         esercizio_2025_04_08_A(); // Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)
+        esercizio_2025_04_08_A_ottimizzato(); // Stesso di prima, ma ottimizzato
     }
 
     // 01 - Dato un Array V=[120,23,4,0,1] somma tutti i numeri nell'array.
@@ -479,8 +481,8 @@ public class Main {
         System.out.println("Esercizio 2024_04_08 - A - Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)");
         System.out.println("");
 
-        int[] a = {1,2,3,2,4,5,5,6,0};
-        int target_sum = 5;
+        int[] a = {1,2,3,2,4,5,5,6,0,-1,-2,-656,999,17};
+        int target_sum = 3;
         int i = 0;
         int j = 0;
         int[] coppia = new int[2];
@@ -514,5 +516,51 @@ public class Main {
         System.out.println("-----------------------------------------------------------------------------------");
     }
 
+    // Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)
+    public static void esercizio_2025_04_08_A_ottimizzato(){
+        System.out.println("----------------------------------  Esercizio 2024_04_08 - A (Versione ottimizzata) - ----------------------------------");
+        System.out.println("Esercizio 2024_04_08 - A (Versione ottimizzata) - Dato un array di interi ed una target sum trova gli indici dei due numeri che sommati risultano essere il target (fermarsi appena si trova la coppia)");
+        System.out.println("");
+
+        int[] a = {1,2,3,2,4,5,5,6,0,-1,-2,-656,999,17};
+        HashMap<Integer, Integer> hash = new HashMap<Integer, Integer>();
+        int target_sum = -3;
+        int i = 0;
+        int j = 0;
+        int[] coppia = new int[2];
+        boolean coppia_trovata = false;
+
+        System.out.println("Vettore iniziale: " + Arrays.toString(a));
+        System.out.println("Target sum: " + target_sum);
+
+        // Step 1 - creo un'hashmap dove key=numero e value=indice in cui si trova il numero
+        while (i < a.length && coppia_trovata == false){
+            hash.put(a[i], i);
+            i++;
+        }
+
+        i = 0;
+        System.out.println("Hashmap: " + hash);
+
+        // Step 2 - cerco nell'hashmap la differenza tra la somma e il numero (se c'è)
+        while (i < a.length && coppia_trovata == false){
+            int differenza = target_sum - a[i];
+            if (hash.get(differenza) != null){
+                coppia[0] = i;
+                coppia[1] = hash.get(differenza);
+                coppia_trovata = true;
+            }
+            i++;
+        }
+
+        // Stampo il risultato
+        if (coppia_trovata) {
+            System.out.println("La coppia di numeri è: " + a[coppia[0]] + " (indice " + coppia[0] + ") e " + a[coppia[1]] + " (indice " + coppia[1] + ")");
+        } else {
+            System.out.println("Non c'è una coppia di numeri che restituisce questa somma");
+        }
+
+        System.out.println("-----------------------------------------------------------------------------------");
+    }
 
 }
