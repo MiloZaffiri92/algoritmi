@@ -1,13 +1,14 @@
 import java.sql.SQLOutput;
 import java.util.Scanner;
-
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class Main {
 
     public static void main(String[] args) {
 
         //algortimo che vuoi testare da 1-10
-        lezione_1();
+        lezione_3();
 
     }
 
@@ -386,5 +387,73 @@ public class Main {
 
     }
 
+    private static void lezione_3() {
+        /*  Dato un array d'interi e una target-sum, trova gli indici dei 2 numeri che sommati risultano il target;
+            l'algoritmo finisce nel momento in cui ne trovo uno o nessuno     */
+        //Da svolgere con le hash map
 
+        //caricamento HashMap
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Quanti valori vuoi inserire");
+        int n=scanner.nextInt(), f=0;
+        while(f<n){
+            System.out.println("Dammi un valore da inserire");
+            map.put(f, scanner.nextInt());
+            f++;
+        }
+
+
+        //corpo algoritmo
+        System.out.println("Inserisci la target-sum");
+        int targetSum=scanner.nextInt();
+        boolean presente=false;
+        int[] ar =new int[2];
+        for(int i:map.keySet()){
+            int rimanente=targetSum-map.get(i);
+            if(map.containsValue(rimanente)){
+                presente=true;
+                ar[0]=i;
+
+                for(Entry<Integer, Integer> entry:map.entrySet()) {
+                    if(entry.getValue()==rimanente) ar[1]=entry.getKey();
+                }
+            }
+        }
+
+        System.out.println("Le posizioni sono: "+ar[0]+" e "+ar[1]+" infatti: "+map.get(ar[0])+"+"+map.get(ar[1])+"="+targetSum);
+
+//        for(Entry<Integer, Integer> entry:map.entrySet()) {
+//
+//
+//        }
+
+
+//        for(int i:map.keySet()) {
+//            Entry<Integer,Integer> prova=map.entrySet();
+//                if(prova.getValue()==targetSum-map.get(i)) {
+//                    System.out.println("Hello"+prova.getKey());
+//
+//                }
+//
+//            }
+
+//
+//        System.out.println(map.entrySet());
+//        if(map.entrySet().contains([1=2])) System.out.println("Hello");
+//
+//        System.out.println(map.get(map.values().contains(2)));
+//        map.compute(map.values().contains(2), )
+
+
+
+
+
+
+
+//        for(Entry<Integer,Integer> prova:map.entrySet()){
+//            if(prova.getValue()==targetSum-map.get(i)) System.out.println("Hello"+prova.getKey());
+//        }
+
+    }
 }
