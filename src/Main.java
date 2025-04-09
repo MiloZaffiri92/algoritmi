@@ -1,6 +1,7 @@
 package org.example;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -14,10 +15,14 @@ public class Main {
 //        numeriRipetuti();
 //        indiceUgualeNumero();
 //          algoritmoEsame();
-        algoritmoTargetSum();
+//        algoritmoTargetSum();
+//        algoritmo11();
+        algoritmoGiusto();
+
 
 
     }
+
 
     private static void algoritmoSomma() {
         Scanner scanner = new Scanner(System.in);
@@ -201,8 +206,6 @@ public class Main {
 
         int num = scan1.nextInt();
 
-
-
         while(i<n) {
             if(a[i]<num || ins == true) {
                 b[j] = a[i];
@@ -249,4 +252,51 @@ public class Main {
             i++;
         }
     }
+
+
+    private static void algoritmoGiusto() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int[] c = {1,2,3,1};
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        int[] b = new int[2];
+        int i = 0;
+        int sum = 4;
+
+        boolean trovato = false;
+
+
+        while(i<c.length) {
+           map.put(c[i],i);
+           i++;
+
+        }
+        i = 0;
+
+        //cerco il valore nell'hashMap
+
+        while(i< c.length && !trovato) {
+            int number = sum - c[i];
+
+            if(map.get(number)!= null) {
+                b[0] = i;
+                b[1] = map.get(number);
+                trovato = true;
+            }
+            i++;
+        }
+        i=0;
+
+        while(i<2) {
+            System.out.println(b[i]);
+            i++;
+        }
+    }
 }
+
+
+
+
+
+
