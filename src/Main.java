@@ -17,7 +17,8 @@ public class Main {
 //          algoritmoEsame();
 //        algoritmoTargetSum();
 //        algoritmo11();
-        algoritmoGiusto();
+        //algoritmoGiusto();
+        inserisciNumeri();
 
 
 
@@ -292,6 +293,28 @@ public class Main {
             System.out.println(b[i]);
             i++;
         }
+    }
+
+    public static void inserisciNumeri() {
+        int[] array = {2,3,5};
+
+        int n = array[array.length-1];
+
+        int i = 0;
+        int contaNum = 0;
+
+        while(i<n-contaNum) {
+            if (i+contaNum+1 != array[i] ) {
+                System.out.println("numero mancante: " + (array[i]-1));
+                contaNum++;
+            }
+            i++;
+        }
+
+        if (contaNum == 0) {
+            System.out.println("non ci sono numeri mancani");
+        }
+
     }
 }
 
