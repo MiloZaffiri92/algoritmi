@@ -1,4 +1,5 @@
-import java.sql.SQLOutput;
+package src.Algoritmi;
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -8,9 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         //algortimo che vuoi testare da 1-10
-        two_sum();
+        algoritmo_12();
 
     }
+
+
 
     private static void algoritmo_1() {
         //somma di tutti i numeri contenuti in un array
@@ -497,6 +500,64 @@ public class Main {
 
 
     }
+
+    private static void algoritmo_12 () {
+        //- Dato un array di numeri da 1 a N con alcuni numeri mancanti, trova tutti i numeri mancanti.
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Inserisci la lunghezza dell'array");
+        int[] ar= new int[scanner.nextInt()];
+        for(int f=0;f<ar.length;f++){
+            System.out.println("Inserisci un numero");
+            ar[f]=scanner.nextInt();
+        }
+
+        //Ordino gli elementi del vettore in caso non siano in ordine crescente
+        int i=0;
+        int j;
+        while(i<ar.length-1){
+            j=i+1;
+            while(j<ar.length){
+                if(ar[j]<ar[i]){
+                        int app=ar[i];
+                        ar[i]=ar[j];
+                        ar[j]=app;
+                }
+                j++;
+            }
+             i++;
+        }
+
+        //corpo algoritmo
+        int[] mancanti= new int[ar[ar.length-1]];
+        int k=0;
+        i=0;
+        j=ar[0];
+        while(i<ar.length){
+            if(ar[i]!=j){
+               mancanti[k]=j;
+               k++;
+            }
+            else {
+                i++;
+            }
+            j++;
+
+        }
+
+        //stampa numeri mancanti
+        for(i=0;i<k;i++) {
+            System.out.println(mancanti[i]+" è un mancante");
+        }
+
+
+    }
+
+
+
+
+
+
 }
 
 //prova
